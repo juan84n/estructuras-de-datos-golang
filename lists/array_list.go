@@ -33,6 +33,10 @@ func (a *ArrayList) Delete(value int32) {
 	a.array = append(a.array[:index], a.array[index+1:]...)
 }
 
+func (a *ArrayList) Size() int {
+	return len(a.array)
+}
+
 func (a *ArrayList) PrintArrayList() {
 	fmt.Println("ArrayList is ", a.array)
 }

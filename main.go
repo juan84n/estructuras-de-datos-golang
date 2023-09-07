@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/juan84n/estructurasdedatos/graph"
 	"github.com/juan84n/estructurasdedatos/lists"
 	"github.com/juan84n/estructurasdedatos/queue"
 	"github.com/juan84n/estructurasdedatos/stack"
@@ -13,9 +14,28 @@ func main() {
 	//callTree()
 	//callArrayList()
 	//callLinkedList()
-	callQueue()
+	//callQueue()
 	//callStack()
+	callGraph()
 
+}
+
+func callGraph() {
+	graph := graph.NewGraphMA(4)
+	//graph := graph.NewGraphLA(4)
+	graph.AddEdge(0, 1)
+	graph.AddEdge(0, 2)
+	graph.AddEdge(1, 2)
+	graph.AddEdge(2, 3)
+	graph.AddEdge(3, 0)
+
+	graph.ShowGraph()
+	neighbors := graph.GetNeighbors(0)
+	fmt.Printf("The neighbors of %d are ", 0)
+	neighbors.PrintArrayList()
+	shortest, _ := graph.ShortestPath(0, 3)
+	fmt.Println("The shortest path is ")
+	shortest.PrintArrayList()
 }
 
 func callArrayList() {
